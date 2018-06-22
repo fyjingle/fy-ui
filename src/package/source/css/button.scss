@@ -1,0 +1,49 @@
+.fy-button {
+  position: relative;
+  box-sizing: border-box;
+  border: none;
+  border-radius: 2px;
+  padding: 0 16px;
+  min-width: 88px;
+  height: 36px;
+  font-size: 14px;
+  line-height: (32 / 14);
+  transition: box-shadow .15s linear;
+  outline: none;
+  cursor: pointer;
+
+  // type
+  // -----------------------------
+  // float, raised(default), flat
+
+  &.fy-button--float {
+
+  }
+
+  &.fy-button--raised {
+    z-index: 0;
+    color: $black;
+    background-color: $white;
+
+    &:hover {
+      background-color: $ddividetext;
+    }
+  
+    &:active {
+      @include boxShadow(2);
+    }
+  }
+  
+  &.fy-button--flat {
+    color: $black;
+    background-color: transparent;
+  
+    &:hover {
+      background-color: $ddividetext;
+    }
+  
+    &:active {
+      background-color: $ddisabledtext;
+    }
+  }
+}
