@@ -3,10 +3,12 @@
     class="fy-button"
     :class="[
       'fy-button--' + type,
+      color ? 'fy-button--' + color : '',
       disabled ? 'fy-button--disabled' : '',
     ]"
+    @mousedown="test($event)"
   >
-    <slot></slot>
+    <slot v-if="type !== 'float'"></slot>
   </button>
 </template>
 
@@ -19,9 +21,22 @@ export default {
       type: String,
       default: 'raised' // float, raised(default), flat
     },
+    color: {
+      type: String,
+      default: '' // (default), primary, accent
+    },
     disabled: {
       type: Boolean,
       default: false
+    }
+  },
+
+  methods: {
+    test (e) {
+      this.$ripple({
+        el: this.$el,
+        target: e
+      })
     }
   }
 }

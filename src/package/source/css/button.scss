@@ -1,4 +1,5 @@
 .fy-button {
+  overflow: hidden;
   position: relative;
   box-sizing: border-box;
   border: none;
@@ -7,43 +8,88 @@
   min-width: 88px;
   height: 36px;
   font-size: 14px;
+  font-weight: 500;
   line-height: (32 / 14);
-  transition: box-shadow .15s linear;
+  transition: box-shadow .3s ease-in-out;
   outline: none;
   cursor: pointer;
+
+  &::before {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    opacity: 0;
+    content: '';
+  }
+  
+  &:hover::before {
+    background-color: currentColor;
+    opacity: .12;
+    transition: all .2s ease-in-out;
+    will-change: background-color, opacity;
+  }
 
   // type
   // -----------------------------
   // float, raised(default), flat
-
-  &.fy-button--float {
-
-  }
-
-  &.fy-button--raised {
-    z-index: 0;
-    color: $black;
-    background-color: $white;
-
-    &:hover {
-      background-color: $ddividetext;
-    }
   
+  &.fy-button--float {
+    border-radius: 50%;
+    min-width: 40px;
+    width: 56px;
+    height: 56px;
+    @include boxShadow(6);
+
+    &::before {
+      border-radius: 50%;
+    }
+
     &:active {
-      @include boxShadow(2);
+      @include boxShadow(12);
+    }
+  }
+  
+  &.fy-button--raised {
+    color: $dprimarytext;
+    background-color: $white;
+    @include boxShadow(2);
+
+    &:active {
+      @include boxShadow(6);
     }
   }
   
   &.fy-button--flat {
-    color: $black;
+    color: $dprimarytext;
     background-color: transparent;
-  
-    &:hover {
-      background-color: $ddividetext;
+  }
+
+  // color
+  // -----------------------------
+  // (default), primary, accent
+
+  &.fy-button--float,
+  &.fy-button--raised {
+    &.fy-button--primary {
+      color: $lprimarytext;
+      background-color: $primary;
     }
   
-    &:active {
-      background-color: $ddisabledtext;
+    &.fy-button--accent {
+      color: $lprimarytext;
+      background-color: $warning;
+    }
+  }
+
+  &.fy-button--flat {
+    &.fy-button--primary {
+      color: $primary;
+    }
+
+    &.fy-button--accent {
+      color: $warning;
     }
   }
 }
