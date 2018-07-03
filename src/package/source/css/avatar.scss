@@ -3,15 +3,44 @@
   width: 40px;
   height: 40px;
   color: $white;
+  font-size: 24px;
+  line-height: (40 / 24);
+  text-align: center;
   background-color: $ddisabledtext;
 
-  .fy-avatar--small {
-    width: 24px;
-    height: 24px;
+  img {
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
   }
 
-  .fy-avatar--large {
+  // size
+  // -----------------------------
+  // small, (default), large
+
+  &--small {
+    width: 24px;
+    height: 24px;
+    font-size: 14px;
+    line-height: (24 / 14);
+  }
+
+  &--large {
     width: 64px;
     height: 64px;
+    font-size: 32px;
+    line-height: (64 / 32);
+  }
+
+  // color
+  // -----------------------------
+  // (default), primary ,accent
+
+  &--primary {
+    background-color: $primary;
+  }
+
+  &--accent {
+    background-color: $warning;
   }
 }

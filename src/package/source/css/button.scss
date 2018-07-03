@@ -35,7 +35,7 @@
   // -----------------------------
   // float, raised(default), flat
   
-  &.fy-button--float {
+  &--float {
     border-radius: 50%;
     min-width: 40px;
     width: 56px;
@@ -51,7 +51,7 @@
     }
   }
   
-  &.fy-button--raised {
+  &--raised {
     color: $dprimarytext;
     background-color: $white;
     @include boxShadow(2);
@@ -61,7 +61,7 @@
     }
   }
   
-  &.fy-button--flat {
+  &--flat {
     color: $dprimarytext;
     background-color: transparent;
   }
@@ -70,8 +70,8 @@
   // -----------------------------
   // (default), primary, accent
 
-  &.fy-button--float,
-  &.fy-button--raised {
+  &--float,
+  &--raised {
     &.fy-button--primary {
       color: $lprimarytext;
       background-color: $primary;
@@ -83,7 +83,7 @@
     }
   }
 
-  &.fy-button--flat {
+  &--flat {
     &.fy-button--primary {
       color: $primary;
     }
