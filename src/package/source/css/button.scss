@@ -11,6 +11,7 @@
   font-weight: 500;
   line-height: (32 / 14);
   transition: box-shadow .3s ease-in-out;
+  will-change: box-shadow;
   outline: none;
   cursor: pointer;
 

@@ -6,7 +6,8 @@
       color ? 'fy-button--' + color : '',
       disabled ? 'fy-button--disabled' : '',
     ]"
-    @mousedown="test($event)"
+    @mousedown="showRipple($event)"
+    @click="click"
   >
     <slot v-if="type !== 'float'"></slot>
   </button>
@@ -32,11 +33,15 @@ export default {
   },
 
   methods: {
-    test (e) {
+    showRipple (e) {
       this.$ripple({
         el: this.$el,
         target: e
       })
+    },
+
+    click (e) {
+      this.$emit('click', e)
     }
   }
 }
